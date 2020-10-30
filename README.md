@@ -70,8 +70,8 @@ This is virtual assistant project developed by the team Techtrio. This project i
 ## Contributing
 1. Fork it
    ```https://github.com/Ratnesh4193/virtual-assistant.git```
-2. Create your feature branch(```git checkout -b feature/foobar```)
-3. Commit your changes (```git commit -am 'Add some foobar'```)
-4. Push to the branch (```git push origin feature/foobar```)
+2. Create your feature branch: ```git checkout -b feature/foobar```
+3. Commit your changes: ```git commit -am 'Add some foobar'```
+4. Push to the branch: ```git push origin feature/foobar```
 5. Create a new Pull Request
 
