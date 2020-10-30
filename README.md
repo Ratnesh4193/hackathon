@@ -2,7 +2,7 @@
 
 This is the project of the team "Techtrio".
 
-##Table of Contents
+## Table of Contents
 - [Description](#description)
 - [How to Use](#how-to-use)
 - [References](#references)
@@ -10,11 +10,11 @@ This is the project of the team "Techtrio".
 
 ---
 
-##Description
+## Description
 
 This is virtual assistant project developed by the team Techtrio. This project is useful to do various  activities  by  using  users voice. It is made to  provide ease in peoples life.
 
-####Features
+#### Features
 
 - Login to any website
 - Create shopping list
@@ -30,13 +30,13 @@ This is virtual assistant project developed by the team Techtrio. This project i
 - Open many other Application
 - Listen Jokes
 
-####Technologies
+#### Technologies
 - Python
 - Flask webframework
 - Html
 - CSS
 
-##How to use
+## How to use
 
 - Make a new folder
 - Open cmd in that folder
@@ -50,6 +50,6 @@ This is virtual assistant project developed by the team Techtrio. This project i
 - Now run the project by command :python main.py
 - Open the link 127.0.0.1:5000  
 
-##Contact
+## Contact
 - Email - rupalsinghid@gmai.com
 
