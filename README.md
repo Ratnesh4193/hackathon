@@ -13,7 +13,7 @@ This is the project of the team "Techtrio".
 
 ## Description
 
-This is virtual assistant project developed by the team Techtrio. This project is useful to do various  activities  by  using  users voice. It is made to  provide ease in peoples life.
+This is virtual assistant project developed by the team Techtrio. This project is useful to do various  activities  by  using  users voice and as well as we can give command by texting also. It is made to  provide ease in peoples life. You can perform below mentioned features by giving command through voice or by texting in input box. 
 
 #### Features
 
@@ -46,14 +46,21 @@ This is virtual assistant project developed by the team Techtrio. This project i
 - Make a new folder
 - Open cmd in that folder
 - Install virtualenv by command : pip install virtualenv
-- Now create a virtual environment named "env" by command :virtualenv env
-- Now activate environment by command : .\env\Scripts\activate
-- Now clone the github repository by command : git clone https://github.com/rupal121/Conceptions.git
+- Now create a virtual environment named "env" by command :
+ > virtualenv env
+- Now activate environment by command :
+ > .\env\Scripts\activate
+- Now clone the github repository by command :
+ > git clone https://github.com/Ratnesh4193/virtual-assistant.git
 - Move inside project by command :cd virtual-assistant
-- Now install all required libraries by command :pip install -r requirements.txt
-- If installation of any library fails then install it individually :pip install <name of library>
-- Now run the project by command :python main.py
-- Open the link 127.0.0.1:5000  
+- Now install all required libraries by command :
+ > pip install -r requirements.txt
+- If installation of any library fails then install it individually :
+ > pip install <name of library>
+- Now run the project by command :
+ > python main.py
+- Open the link :
+  > 127.0.0.1:5000  
 
 ## Contact
 - Rupal Singh - rupalsinghid@gmai.com  - https://www.linkedin.com/in/rupal-singh-40b3001a8/
@@ -62,9 +69,9 @@ This is virtual assistant project developed by the team Techtrio. This project i
 
 ## Contributing
 1. Fork it
-   (https://github.com/rupal121/Conceptions.git)
-2. Create your feature branch( git checkout -b feature/foobar)
-3. Commit your changes (git commit -am 'Add some foobar')
-4. Push to the branch (git push origin feature/foobar)
+   ```https://github.com/Ratnesh4193/virtual-assistant.git```
+2. Create your feature branch(```git checkout -b feature/foobar```)
+3. Commit your changes (```git commit -am 'Add some foobar'```)
+4. Push to the branch (```git push origin feature/foobar```)
 5. Create a new Pull Request
 
