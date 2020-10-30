@@ -1,4 +1,4 @@
-# Conception
+# Virtual Assistant
 
 This is the project of the team "Techtrio".
 
@@ -16,19 +16,21 @@ This is virtual assistant project developed by the team Techtrio. This project i
 
 #### Features
 
-- Login to any website
+- Login to website
 - Create shopping list
 - Create events in google calender
 - Give Alert Message
 - Get updates of News
 - Do search on Google
 - Do search on Youtube
-- Know the time
+- Know current time and date 
 - Know about the weather
 - Play some games
 - Ask random queries
 - Open many other Application
 - Listen Jokes
+- Send emails and whatsapp messages
+- Capture screenshot
 
 #### Technologies
 - Python
@@ -41,15 +43,15 @@ This is virtual assistant project developed by the team Techtrio. This project i
 - Make a new folder
 - Open cmd in that folder
 - Install virtualenv by command : pip install virtualenv
-- Now create a virtual environment named "env" by command :virtualenv env
-- Now activate environment by command : ./env/Scripts/activate
+- Now create a virtual environment named "assistant" by command :virtualenv assistant
+- Now activate environment by command : ./assistant/Scripts/activate
 - Now clone the github repository by command : git clone https://github.com/rupal121/Conceptions.git
-- Move inside project by command :cd virtual-assistant
+- Move inside project by command :cd Conceptions
 - Now install all required libraries by command :pip install -r requirements.txt
 - If installation of any library fails then install it individually :pip install <name of library>
 - Now run the project by command :python main.py
 - Open the link 127.0.0.1:5000  
 
 ## Contact
-- Email - rupalsinghid@gmai.com
+- Email - rupalsinghid@gmail.com
 
