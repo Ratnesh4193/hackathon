@@ -1,4 +1,4 @@
-# Conceptions
+# Techtrio Virtual Assistant
 ![alt text](static/techtriobg.jpeg)
 
 This is the project of the team "Techtrio".
@@ -39,11 +39,15 @@ This is virtual assistant project developed by the team Techtrio. This project i
 
 ## How to use
 
+### Prerequisite
+- Download Python
+
+### Steps to be followed to use this Project
 - Make a new folder
 - Open cmd in that folder
 - Install virtualenv by command : pip install virtualenv
 - Now create a virtual environment named "env" by command :virtualenv env
-- Now activate environment by command : ./env/Scripts/activate
+- Now activate environment by command : .\env\Scripts\activate
 - Now clone the github repository by command : git clone https://github.com/rupal121/Conceptions.git
 - Move inside project by command :cd virtual-assistant
 - Now install all required libraries by command :pip install -r requirements.txt
@@ -52,7 +56,9 @@ This is virtual assistant project developed by the team Techtrio. This project i
 - Open the link 127.0.0.1:5000  
 
 ## Contact
-Rupal Singh - rupalsinghid@gmai.com  - https://www.linkedin.com/in/rupal-singh-40b3001a8/
+- Rupal Singh - rupalsinghid@gmai.com  - https://www.linkedin.com/in/rupal-singh-40b3001a8/
+- Ratnesh kumar Tiwari - rktssgk@gmail.com -  https://www.linkedin.com/in/ratnesh-kumar-tiwari-867b521a6
+- Sanskar Srivastava -  sanskar0703@gmail.com - https://www.linkedin.com/in/sanskar-srivastava-0319b3194/ 
 
 ## Contributing
 1. Fork it
