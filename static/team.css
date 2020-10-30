@@ -5,7 +5,7 @@
   }
   body{
     min-height:100vh;
-    background:  url("{{ url_for('static' , filename ='images/stars.png')}}");
+    background:  url('images/stars.png');
     animation: star 120s linear infinite;
     color:#fff;
     display:flex;
