@@ -16,9 +16,7 @@ def list_event():
         engine_speak.engine_speak('No upcoming events found.')
     else:
         for event in events:
-            engine_speak.engine_speak(event)
             start = event['start'].get('dateTime', event['start'].get('date'))
-            engine_speak.engine_speak(start, event['summary'])
-
-if __name__ == '__main__':
-   list_event()
+            temp=(start.split("T")[1]).split(":")
+            date=(start.split("T"))[0].split("-")
+            engine_speak.engine_speak("remainder of "+event['summary']+" on "+str(int(date[2]))+"/"+str(int(date[1]))+"/"+str(int(date[0]))+" at "+temp[0]+" "+temp[1].split(":")[0])

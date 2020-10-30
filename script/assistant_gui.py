@@ -52,6 +52,7 @@ def record_audio(ask=""):
         return voice_data.lower()
 def respond(voice_data):
     #  greeting
+    print(voice_data)
     global person_obj,asis_obj
     if there_exists(['hey','hi','hello'],voice_data):
         greetings = [f"hey, how can I help you {person_obj.name}", f"hey, what's up? {person_obj.name}", f"I'm listening {person_obj.name}", f"how can I help you? {person_obj.name}", f"hello {person_obj.name}"]
@@ -120,21 +121,47 @@ def respond(voice_data):
             engine_speak("you did not make a valid selection")
     #creating events in google calender
     elif there_exists(["event","special days","meeting","work","schedule"],voice_data):
-        if there_exists(["add","append"],voice_data):
+        if there_exists(["add","append","create","make"],voice_data):
+            months=["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"]
             description=record_audio("Please tell the description")
+            if description=='':
+                description=record_audio("Please tell the description")
+            print(description)
             date=record_audio("please tell the date")
+            try:
+                date=int(date)
+            except:
+                record_audio("please tell the date in numbers?")
+            print(date)
+            month_name=record_audio("please tell the month")[:3]
+            try:
+                month=months.index(month_name)+1
+            except:
+                month_name=record_audio("please tell the month again")[:3]
+                month=months.index(month_name)+1
+            print(month_name,month)
             time_input=record_audio("Please tell the time")
-            hour=int(time_input.split(" ")[0])
+            try:
+                time_input=time_input.replace(".","")
+                print(time_input)
+                hour=time_input.split(" ")[0]
+                hour=int(hour.split(":")[0])
+            except:
+                time_input=record_audio("Please tell the time in digits")
+                time_input=time_input.replace(".","")
+                print(time_input)
+                hour=time_input.split(" ")[0]
+                hour=int(hour.split(":")[0])
             if there_exists(["pm","evening"],time_input):
                 hour+=12
             if date=='':
                 date=datetime.now().date
-            if time=='':
+            if time_input=='':
                 hour=datetime.now().time()
             '''summary="Event",description="This is a tutorial example of automating google calendar with python"
             ,date=datetime.now().day,month=datetime.now().month,year=datetime.now().year,
             hour=datetime.now().hour,minute=datetime.now().minute,duration=1'''
-            create_event.create_event(description=description,date=date,time=hour)
+            create_event.create_event(description=description,date=int(date),hour=int(hour),month=int(month))
         else:
             list_events.list_event()
     # messaging services
@@ -166,7 +193,10 @@ def respond(voice_data):
         engine_speak(f'Here is what I found for  {search_term}  on google')
     # : search youtube
     elif there_exists(["youtube"],voice_data):
-        search_term = voice_data.split("for")[-1]
+        if "for" in voice_data:
+            search_term = voice_data.split("for")[-1]
+        elif "on" in voice_data:
+            search_term = voice_data.split("for")[0]
         url = f"https://www.youtube.com/results?search_query={search_term}"
         webbrowser.get().open(url)
         engine_speak(f'Here is what I found for {search_term} on youtube')
@@ -220,7 +250,8 @@ def respond(voice_data):
     # screenshot
     elif there_exists(["capture","my screen","screenshot"],voice_data):
         myScreenshot = pyautogui.screenshot()
-        myScreenshot.save(f'media/images/{str(random.randint(1,100110))}.png')     
+        imagename="screen_capture/"+str(random.randint(1,100110))+"capture.png"
+        myScreenshot.save(imagename)     
     # to search wikipedia for definition
     elif there_exists(["definition of"],voice_data):
         definition=voice_data.split("definition of")[-1][1:]
@@ -250,9 +281,9 @@ def respond(voice_data):
         except:
             engine_speak(f"{app} not found")
     # exit
-    elif there_exists(["exit", "quit", "goodbye"],voice_data):
-        engine_speak("going offline")
-        exit() 
+    #elif there_exists(["exit", "quit", "goodbye"],voice_data):
+    #    engine_speak("going offline")
+    #    exit() 
     #Random queries with wolframaplha 
     else:
         if voice_data!='':
@@ -263,17 +294,17 @@ def respond(voice_data):
                 res = client.query(voice_data) 
                 answer = next(res.results).text
                 engine_speak('Got it.')
-                engine_speak('WOLFRAM-ALPHA says - '+answer)
+                engine_speak(answer)
             except:
                 results = wikipedia.summary(voice_data, sentences=2)
                 engine_speak('Got it.')
-                engine_speak('WIKIPEDIA says - '+results)
+                engine_speak(results)
         
         else:
             webbrowser.open('www.google.com')
 def engine_speak(audio_string):
     tts=gTTS(text=audio_string,lang='en',slow=False)
-    filename=str(random.randint(1,100110))+"welcome.mp3"
+    filename="temp_audio/"+str(random.randint(1,100110))+"welcome.mp3"
     tts.save(filename)
     playsound.playsound(filename)
     os.remove(filename)
