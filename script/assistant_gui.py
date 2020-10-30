@@ -27,7 +27,7 @@ class asis:
         self.name = name
 person_obj = person()
 asis_obj = asis()
-asis_obj.name = 'kiki'
+asis_obj.name = 'TechTrio'
 
 def there_exists(terms,voice_data):
     for term in terms:
@@ -64,9 +64,9 @@ def respond(voice_data):
         asis_obj.setName(asis_name)
     elif there_exists(["what is your name","what's your name","tell me your name"],voice_data):
         if person_obj.name:
-            engine_speak("My name is Alexa")
+            engine_speak("My name is "+person_obj.name)
         else:
-            engine_speak("my name is Alexis. what's your name?")
+            engine_speak("my name is TechTrio. what's your name?")
     elif there_exists(["my name is"],voice_data):
         person_name = voice_data.split("is")[-1].strip()
         engine_speak(f"okay, i will remember that {person_name}")
