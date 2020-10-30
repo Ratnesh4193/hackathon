@@ -60,7 +60,7 @@ This is virtual assistant project developed by the team Techtrio. This project i
 - Now run the project by command :
  > python main.py
 - Open the link :
-  > 127.0.0.1:5000  
+ > 127.0.0.1:5000  
 
 ## Contact
 - Rupal Singh - rupalsinghid@gmai.com  - https://www.linkedin.com/in/rupal-singh-40b3001a8/
