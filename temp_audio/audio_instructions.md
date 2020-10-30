@@ -1,1 +1,1 @@
-#This directory is just for storing the temporary audio files during the session that are used to give voice commands to the virtual assistant.
+# This directory is just for storing the temporary audio files during the session that are used to give voice commands to the virtual assistant.
