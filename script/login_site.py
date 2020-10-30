@@ -7,9 +7,6 @@ from getpass import getpass
 
 
 def login_site(user,pwd,site):
-    '''user=input('Enter Id:')  
-    pwd=getpass('Enter Password:')  
-    site=int(input("Enter site no."))'''
     driver = webdriver.Chrome(ChromeDriverManager().install()) 
     avai_site=[["https://www.codechef.com/","edit-name","edit-pass"],
     ["https://www.facebook.com/","email","pass"],
@@ -27,4 +24,6 @@ def login_site(user,pwd,site):
     password_box.send_keys(pwd) 
     print ("Password entered") 
     password_box.submit()
+    input()
+    driver.quit()
     print ("Done") 

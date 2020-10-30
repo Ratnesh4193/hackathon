@@ -1,20 +1,22 @@
 if True:
     #from tkinter import *
     import speech_recognition as sr
+    from datetime import datetime
     from time import ctime
     import webbrowser,time
     import playsound
     import os
-    import random#,pyautogui
+    import random,pyttsx3,pyautogui
     from gtts import gTTS
     import bs4 as bs
     import urllib.request
     from . import send_msg
     import wikipedia,requests
     import wolframalpha
-    from .calender.create_event import create_event
+    from .calender import create_event,list_events
     import pyjokes 
     from .login_site import login_site
+    from . import shopping_list
 class person:
     name = ''
     def setName(self, name):
@@ -77,24 +79,64 @@ def respond(voice_data):
         engine_speak(pyjokes.get_joke())
     #   Login Sites
     elif there_exists(["login"],voice_data):
-        user=record_audio("Tell the User name")
-        password=record_audio("Tell the password")
+        user=record_audio("Tell me the User name")
+        user.replace(' ','')
+        password=record_audio("Tell me the password")
+        password.replace(' ','')
+        print(user,password)
         if there_exists(["codechef"],voice_data):
             login_site(user,password,0)
-        if there_exists(["facebook",'fb'],voice_data):
+            engine_speak("Logged in Codechef")
+        elif there_exists(["facebook",'fb'],voice_data):
             login_site(user,password,1)
-        if there_exists(["hackerrank"],voice_data):
+            engine_speak("Logged in Face Book")
+        elif there_exists(["hackerrank"],voice_data):
             login_site(user,password,2)
-        if there_exists(["codeforce"],voice_data):
+            engine_speak("Logged in Hackerrank")
+        elif there_exists(["codeforce"],voice_data):
             login_site(user,password,3)
-        if there_exists(["linkedin"],voice_data):
+            engine_speak("Logged in CodeForces")
+        elif there_exists(["linkedin"],voice_data):
             login_site(user,password,4)
+            engine_speak("Logged in Linkedin")
+        else:
+            engine_speak("Site cannot be logged in . Please try again.")
+    #create shopping list
+    elif there_exists(["shopping list","shoppinglist","shopping"],voice_data):
+        selection = record_audio("Make your selection")
+        if there_exists(["view","display","show"]) in selection:
+            shoping_list.displaylist()
+        elif there_exists(["add"]) in selection:
+            shopping_list.addItem()
+        elif there_exists(["remove","discard","delete" ]) in selection:
+            shopping_list.removeItem()
+        elif there_exists(["check this", "check item" ,"exists"]) in selection:
+            shopping_list.checkItem()
+        elif there_exists(["how many items" , "number of item","total item"]) in selection:
+            shopping_list.listLength()
+        elif there_exists(["clear all","remove all","delete all", "discard"]) in selection:
+            shopping_list.clearList()
+        else:
+            engine_speak("you did not make a valid selection")
     #creating events in google calender
-    elif there_exists(["event"],voice_data):
-        '''summary="Event",description="This is a tutorial example of automating google calendar with python"
-        ,date=datetime.now().day,month=datetime.now().month,year=datetime.now().year,
-        hour=datetime.now().hour,minute=datetime.now().minute,duration=1'''
-        create_event()
+    elif there_exists(["event","special days","meeting","work","schedule"],voice_data):
+        if there_exists(["add","append"],voice_data):
+            description=record_audio("Please tell the description")
+            date=record_audio("please tell the date")
+            time=record_audio("Please tell the time")
+            hour=int(time.split(" ")[0])
+            if there_exists(["pm","evening"],time):
+                hour+=12
+            if date=='':
+                date=datetime.now().date
+            if time=='':
+                time=datetime.now().time()
+            '''summary="Event",description="This is a tutorial example of automating google calendar with python"
+            ,date=datetime.now().day,month=datetime.now().month,year=datetime.now().year,
+            hour=datetime.now().hour,minute=datetime.now().minute,duration=1'''
+            create_event.create_event(description=description,date=date,time=hour)
+        else:
+            list_events.list_event()
     # messaging services
     elif there_exists(["whatsapp"],voice_data):
         send_msg.send_whatsapp("this is an alert whatsapp")
@@ -177,9 +219,8 @@ def respond(voice_data):
         engine_speak("The computer chose " + cmove)
     # screenshot
     elif there_exists(["capture","my screen","screenshot"],voice_data):
-        pass
-        # myScreenshot = pyautogui.screenshot()
-        # myScreenshot.save('media/images/capture.png')     
+        myScreenshot = pyautogui.screenshot()
+        myScreenshot.save(f'media/images/{str(random.randint(1,100110))}.png')     
     # to search wikipedia for definition
     elif there_exists(["definition of"],voice_data):
         definition=voice_data.split("definition of")[-1][1:]
@@ -214,8 +255,8 @@ def respond(voice_data):
         exit() 
     #Random queries with wolframaplha 
     else:
-        engine_speak('Searching...')
-        try:
+        if voice_data!='':
+            engine_speak('Searching...')
             try:
                 app_id = "4GEY95-8G7P978E7W" 
                 client = wolframalpha.Client(app_id) 
@@ -228,7 +269,7 @@ def respond(voice_data):
                 engine_speak('Got it.')
                 engine_speak('WIKIPEDIA says - '+results)
         
-        except:
+        else:
             webbrowser.open('www.google.com')
 def engine_speak(audio_string):
     tts=gTTS(text=audio_string,lang='en',slow=False)

@@ -21,4 +21,3 @@ hour=datetime.now().hour,minute=datetime.now().minute,duration=1):
    print("summary: ", event_result['summary'])
    print("starts at: ", event_result['start']['dateTime'])
    print("ends at: ", event_result['end']['dateTime'])
-
