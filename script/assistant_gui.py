@@ -123,14 +123,14 @@ def respond(voice_data):
         if there_exists(["add","append"],voice_data):
             description=record_audio("Please tell the description")
             date=record_audio("please tell the date")
-            time=record_audio("Please tell the time")
-            hour=int(time.split(" ")[0])
-            if there_exists(["pm","evening"],time):
+            time_input=record_audio("Please tell the time")
+            hour=int(time_input.split(" ")[0])
+            if there_exists(["pm","evening"],time_input):
                 hour+=12
             if date=='':
                 date=datetime.now().date
             if time=='':
-                time=datetime.now().time()
+                hour=datetime.now().time()
             '''summary="Event",description="This is a tutorial example of automating google calendar with python"
             ,date=datetime.now().day,month=datetime.now().month,year=datetime.now().year,
             hour=datetime.now().hour,minute=datetime.now().minute,duration=1'''
