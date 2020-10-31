@@ -1,13 +1,11 @@
 if True:
-    #from tkinter import *
+    import pyttsx3 
     import speech_recognition as sr
     from datetime import datetime
     from time import ctime
     import webbrowser,time
-    import playsound
     import os
     import random,pyautogui
-    from gtts import gTTS
     import bs4 as bs
     import urllib.request
     from . import send_msg
@@ -40,7 +38,7 @@ def record_audio(ask=""):
     else:
         engine_speak("speak now")
     with sr.Microphone() as source:
-        audio = r.listen(source,5,5) 
+        audio = r.listen(source,phrase_time_limit=5) 
         voice_data = ''
         try:
             voice_data = r.recognize_google(audio)
@@ -105,17 +103,18 @@ def respond(voice_data):
     #create shopping list
     elif there_exists(["shopping list","shoppinglist","shopping"],voice_data):
         selection = record_audio("Make your selection")
-        if there_exists(["view","display","show"]) in selection:
+        print(selection)
+        if there_exists(["view","display","show"],selection) :
             shopping_list.displaylist()
-        elif there_exists(["add","append"]) in selection:
+        elif there_exists(["add","append","ad"],selection) :
             shopping_list.addItem()
-        elif there_exists(["remove","discard","delete" ]) in selection:
+        elif there_exists(["remove","discard","delete" ],selection) :
             shopping_list.removeItem()
-        elif there_exists(["check this", "check item" ,"exists"]) in selection:
+        elif there_exists(["check this", "check item" ,"exists"],selection) :
             shopping_list.checkItem()
-        elif there_exists(["how many items" , "number of item","total item"]) in selection:
+        elif there_exists(["how many items" , "number of item","total item"],selection) :
             shopping_list.listLength()
-        elif there_exists(["clear all","remove all","delete all", "discard"]) in selection:
+        elif there_exists(["clear all","remove all","delete all", "discard"],selection) :
             shopping_list.clearList()
         else:
             engine_speak("you did not make a valid selection")
@@ -138,7 +137,10 @@ def respond(voice_data):
                 month=months.index(month_name)+1
             except:
                 month_name=record_audio("please tell the month again")[:3]
-                month=months.index(month_name)+1
+                try:
+                    month=months.index(month_name)+1
+                except:
+                    month=datetime.now().month()
             print(month_name,month)
             time_input=record_audio("Please tell the time")
             try:
@@ -155,7 +157,7 @@ def respond(voice_data):
             if there_exists(["pm","evening"],time_input):
                 hour+=12
             if date=='':
-                date=datetime.now().date
+                date=datetime.now().date()
             if time_input=='':
                 hour=datetime.now().time()
             '''summary="Event",description="This is a tutorial example of automating google calendar with python"
@@ -165,16 +167,17 @@ def respond(voice_data):
         else:
             list_events.list_event()
     # messaging services
+    elif there_exists(["alert","danger","police"],voice_data):
+        send_msg.send_whatsapp("this is an alert mail") 
+        send_msg.send_sms("this is an alert mail")
+        send_msg.send_mail("this is an alert mail")
     elif there_exists(["whatsapp"],voice_data):
         send_msg.send_whatsapp("this is an alert whatsapp")
     elif there_exists(["sms","message"],voice_data):
         send_msg.send_sms("this is an alert sms") 
     elif there_exists(["email","gmail","mail"],voice_data):
         send_msg.send_mail("this is an alert mail") 
-    elif there_exists(["alert","danger","police"],voice_data):
-        send_msg.send_whatsapp("this is an alert mail") 
-        send_msg.send_sms("this is an alert mail")
-        send_msg.send_mail("this is an alert mail")  
+      
     #News services
     elif there_exists(["tell me news","news","todays news","todays headline"],voice_data):
         main_url = " https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=9bd432aa4f3a4d028182f037fcfb6b18"
@@ -187,7 +190,11 @@ def respond(voice_data):
             engine_speak(results[i]) 
     #  search google
     elif there_exists(["search for","search","find for me"],voice_data) and 'youtube' not in voice_data:
-        search_term = voice_data.split("for")[-1]
+        search_term=""
+        if there_exists(["for"] ,voice_data):
+            search_term = voice_data.split("for")[-1]
+        else:
+            search_term = voice_data.split("search")[-1]
         url ='https://www.google.com/search?source=hp&ei=mzSKXrigErWL4-EPpe6NyA4&q='+search_term+"&oq=coro&gs_lcp=CgZwc3ktYWIQAxgCMgUIABCDATIFCAAQgwEyAggAMgUIABCDATIFCAAQgwEyBQgAEIMBMgIIADIFCAAQgwEyAggAMgIIADoOCAAQ6gIQtAIQmgEQ5QJKFQgXEhEwZzI1NGcyNzhnMjI1ZzIyNUoNCBgSCTBnMWcxZzFnMVC5QFjbQ2C2WGgDcAB4AIABsQKIAekIkgEHMC4yLjIuMZgBAKABAaoBB2d3cy13aXqwAQY&sclient=psy-ab"
         webbrowser.get().open(url)
         engine_speak(f'Here is what I found for  {search_term}  on google')
@@ -195,23 +202,28 @@ def respond(voice_data):
     elif there_exists(["youtube"],voice_data):
         if "for" in voice_data:
             search_term = voice_data.split("for")[-1]
+        
         elif "on" in voice_data:
-            search_term = voice_data.split("for")[0]
+            search_term = voice_data.split("on")[0]
+            search_term=search_term.split("search")[-1]
         url = f"https://www.youtube.com/results?search_query={search_term}"
         webbrowser.get().open(url)
         engine_speak(f'Here is what I found for {search_term} on youtube')
     #  time
     elif there_exists(["what's the time","tell me the time","what time is it","time"],voice_data):
-        t = time.ctime().split(" ")[3].split(":")[0:2]
+        t = time.ctime().split(" ")
+        if '' in t:
+            t.remove('')
+        t=t[3].split(":")
         if t[0] == "00":
             hours = '12'
         else:
             hours = t[0]
         minutes = t[1]
-        if int(hours)>=12:
-            t = f'the time is {int(hours)-12} hours {minutes} minutes  PM'
+        if int(hours)>12:
+            t = f'the time is {int(hours)-12}:{minutes} PM'
         else:
-            t = f'the time is {int(hours)-12} hours {minutes} minutes AM'
+            t = f'the time is {int(hours)}:{minutes} AM'
         engine_speak(t)
     # weather
     elif there_exists(["weather"],voice_data):
@@ -280,10 +292,6 @@ def respond(voice_data):
             engine_speak(f"Opening {app}")
         except:
             engine_speak(f"{app} not found")
-    # exit
-    #elif there_exists(["exit", "quit", "goodbye"],voice_data):
-    #    engine_speak("going offline")
-    #    exit() 
     #Random queries with wolframaplha 
     else:
         if voice_data!='':
@@ -303,8 +311,9 @@ def respond(voice_data):
         else:
             webbrowser.open('www.google.com')
 def engine_speak(audio_string):
-    tts=gTTS(text=audio_string,lang='en',slow=False)
-    filename="temp_audio/"+str(random.randint(1,100110))+"welcome.mp3"
-    tts.save(filename)
-    playsound.playsound(filename)
-    os.remove(filename)
+    engine = pyttsx3.init() 
+    engine.say(audio_string) 
+    engine.runAndWait() 
+
+
+
