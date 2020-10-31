@@ -106,8 +106,8 @@ def respond(voice_data):
     elif there_exists(["shopping list","shoppinglist","shopping"],voice_data):
         selection = record_audio("Make your selection")
         if there_exists(["view","display","show"]) in selection:
-            shoping_list.displaylist()
-        elif there_exists(["add"]) in selection:
+            shopping_list.displaylist()
+        elif there_exists(["add","append"]) in selection:
             shopping_list.addItem()
         elif there_exists(["remove","discard","delete" ]) in selection:
             shopping_list.removeItem()
