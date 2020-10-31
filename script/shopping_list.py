@@ -4,11 +4,13 @@ def addItem():
 	item = assistant_gui.record_audio("enter the item you wish to add to the shopping list")
 	with open("shopping_list.txt","a+") as f:
 		f.close()
-	with open("shopping_list.txt","r+") as f:
+	with open("shopping_list.txt","a+") as f:
 		content=f.readlines()
 		f.close()
 	item+="\n"
 	with open("shopping_list.txt","w") as f:
+		for i in content:
+			f.write(i) 
 		f.write(item)
 		f.close()
 	assistant_gui.engine_speak(item+"has been added to the shopping list")
@@ -35,10 +37,12 @@ def removeItem():
 	item+="\n"
 	if item in content:
 		content.remove(item)
-	with open("shopping_list.txt","w") as f:
-		f.write(item)
-		f.close()
-	assistant_gui.engine_speak(item+"has been removed from the shopping list")
+		with open("shopping_list.txt","w") as f:
+			f.write(item)
+			f.close()
+		assistant_gui.engine_speak(item+"has been removed from the shopping list")
+	else:
+		assistant_gui.record_audio(item+"not found in the shopping list")	
 
 def checkItem():
 	item= assistant_gui.record_audio("what item would you like to check on the shopping list")
@@ -48,9 +52,9 @@ def checkItem():
 		content=f.readlines()
 		f.close()
 	if item+"\n" in content:
-		assistant_gui.engine_speak("yes"+item +"is on the shopping list")
+		assistant_gui.engine_speak("yes "+item +" is on the shopping list")
 	else:
-		assistant_gui.engine_speak("No"+item +"is not on the shopping list")
+		assistant_gui.engine_speak("No "+item +" is not on the shopping list")
 def listLength():
 	with open("shopping_list.txt","a+") as f:
 		f.close()
@@ -63,6 +67,6 @@ def clearList():
 	with open("shopping_list.txt","a+") as f:
 		f.close()
 	with open("shopping_list.txt","w") as f:
-		f.write(item)
+		f.write("")
 		f.close()
 	assistant_gui.engine_speak("the shopping list is now empty")
