@@ -46,10 +46,10 @@ This is virtual assistant project developed by the team Techtrio. This project i
 - Make a new folder
 - Open cmd in that folder
 - Install virtualenv by command : pip install virtualenv
-- Now create a virtual environment named "env" by command :
- > virtualenv env
+- Now create a virtual environment named "assistant" by command :
+ > virtualenv assistant
 - Now activate environment by command :
- > .\env\Scripts\activate
+ > .\assistant\Scripts\activate
 - Now clone the github repository by command :
  > git clone https://github.com/Ratnesh4193/virtual-assistant.git
 - Move inside project by command :cd virtual-assistant
@@ -60,18 +60,21 @@ This is virtual assistant project developed by the team Techtrio. This project i
 - Now run the project by command :
  > python main.py
 - Open the link :
- > 127.0.0.1:5000  
+ > 127.0.0.1:5000/  
 
 ## Contact
-- Rupal Singh - rupalsinghid@gmai.com  - https://www.linkedin.com/in/rupal-singh-40b3001a8/
-- Ratnesh kumar Tiwari - rktssgk@gmail.com -  https://www.linkedin.com/in/ratnesh-kumar-tiwari-867b521a6
+- Rupal Singh - rupalsinghid@gmail.com  - https://www.linkedin.com/in/rupal-singh-40b3001a8/
+- Ratnesh kumar Tiwari - rktssgk@gmail.com -  https://www.linkedin.com/in/ratnesh-kumar-tiwari-867b521a6/
 - Sanskar Srivastava -  sanskar0703@gmail.com - https://www.linkedin.com/in/sanskar-srivastava-0319b3194/ 
 
 ## Contributing
 1. Fork it
    ```https://github.com/Ratnesh4193/virtual-assistant.git```
-2. Create your feature branch: ```git checkout -b feature/foobar```
-3. Commit your changes: ```git commit -am 'Add some foobar'```
-4. Push to the branch: ```git push origin feature/foobar```
+2. Create your feature branch: 
+   ```git checkout -b feature/foobar```
+3. Commit your changes: 
+   ```git commit -am 'Add some foobar'```
+4. Push to the branch: 
+   ```git push origin feature/foobar```
 5. Create a new Pull Request
 
