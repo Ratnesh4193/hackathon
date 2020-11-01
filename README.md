@@ -73,7 +73,7 @@ https://drive.google.com/drive/folders/12q2mrjueLZhgqb9l1EV7g4NtTVpCyeEU?usp=sha
  > 127.0.0.1:5000/  
  
  ### Instructions:
-  ![alt text](instructions.md)
+ [instructions.md](instructions.md)
     
 ---    
 
