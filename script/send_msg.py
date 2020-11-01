@@ -17,13 +17,13 @@ timezone=geo_request['timezone']
 location_info=latitude+' , '+longitude+'\n'+city+' , '+state+' , '+country+"\n"+timezone
 def send_whatsapp(msg):
     account_sid = 'ACe663722c4f2fbfeac4a2240e4a2c7fdd' 
-    auth_token = 'd5a6e748ba51a5bd192d9528e63af202' 
+    auth_token = 'ccecadf6b8ca957763c42830717f4c05' 
     client = Client(account_sid, auth_token) 
-    message = client.messages.create(from_='whatsapp:+14155238886',body="\n"+msg+"\n"+location_info,    to='whatsapp:+916386927743' ) 
+    message = client.messages.create(from_='whatsapp:+14155238886',body="\n"+msg+"\n"+location_info,    to='whatsapp:+919455266878' ) 
     print(message.sid)
 def send_sms(msg):
     account_sid = 'ACe663722c4f2fbfeac4a2240e4a2c7fdd' 
-    auth_token = 'd5a6e748ba51a5bd192d9528e63af202' 
+    auth_token = 'ccecadf6b8ca957763c42830717f4c05' 
     client = Client(account_sid, auth_token) 
     message = client.messages.create( from_='+14842558182',   to='+919455266878' ,body="\n"+msg+"\n"+location_info) 
     print(message.sid)
