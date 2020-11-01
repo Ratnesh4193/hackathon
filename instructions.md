@@ -8,7 +8,7 @@
 
  - If you ask for **alert** ,**danger**, **police** then it will send whatsapp message ,sms, mail to the person whose details you saved in a send_msg.py.
  
- - If you want to send **sms/whatsapp/email** give the commands same commands for this.
+ - If you want to send **sms/whatsapp/email** give same commands for this.
 
  - If you ask for **tell me news**, **today’s news**, **today’s headline** then Assistant will tell you the news.
 
