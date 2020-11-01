@@ -76,6 +76,20 @@ def respond(voice_data):
     #  Jokes
     elif there_exists(["joke"],voice_data):
         engine_speak(pyjokes.get_joke())
+     # BMI
+    elif there_exists(["check weight", "check bmi"], voice_data):
+        height = record_audio("tell me your height please")
+        weight = record_audio("tell me your weight please")
+        bmi = weight/height**2
+        engine_speak("your bmi is :{0} and you are:" .format(bmi) , end='')
+        if(bmi < 16):
+            engine_speak("severely underweight")
+        elif(bmi >=16 and bmi < 18):
+            engine_speak("healthy")
+        elif(bmi>=25 and bmi < 30):
+            engine_speak("overweight")
+        else:
+            engine_speak("severely overweight")
     #   Login Sites
     elif there_exists(["login"],voice_data):
         user=record_audio("Tell me the User name")
