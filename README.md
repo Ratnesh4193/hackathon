@@ -60,7 +60,7 @@ https://drive.google.com/drive/folders/12q2mrjueLZhgqb9l1EV7g4NtTVpCyeEU?usp=sha
 - Move inside project by command :
  > cd virtual-assistant
 - Download PyAudio library whl according to your python version from https://pypi.org/project/PyAudio/#files and install it in the virtual by command :
- > pip install name_of_the_file
+ > pip install name_of_the_file.whl
 - Before installing the libraries mentioned in requirements.txt use this command :
  > pip install Pillow , psycopg2
 - Now install all other required libraries by command :
