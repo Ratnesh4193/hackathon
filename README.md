@@ -14,8 +14,8 @@ Project made by Team "Techtrio".
 ## Description
 
 This is virtual assistant project developed by the team Techtrio. This project is useful to do various  activities  by  using  users voice and as well as we can give command by texting also. It is made to  provide ease in peoples life. You can perform below mentioned features by giving command through voice or by texting in input box. <br>
-Link to our project video :
-https://drive.google.com/drive/folders/12q2mrjueLZhgqb9l1EV7g4NtTVpCyeEU?usp=sharing
+Link to our project video :<br>
+https://youtu.be/wONJcv5ORsw
 
 #### Features
 
