@@ -7,12 +7,14 @@
  - If you want to **create event , special days, meeting, work, schedule** in google calendar then Assistant ask you for the description , give all the details ask by it.
 
  - If you ask for **alert** ,**danger**, **police** then it will send whatsapp message ,sms, mail to the person whose details you saved in a send_msg.py.
+ 
+ - If you want to send **sms/whatsapp/email** give the commands same commands for this.
 
  - If you ask for **tell me news**, **today’s news**, **today’s headline** then Assistant will tell you the news.
 
  - If you want to **search on google** then ask **search for**,**search**,**find for me** followed by the object name you want to search.
 
- - If you ask **what’s the time** ,**tell me the time**, **what time is it** then Assistant tell you the time.
+ - If you ask **what’s the time/date** ,**tell me the time/date**, **what time/date is it** then Assistant tell you the time.
 
  - If you ask for **weather** then it will tell you about weather.
 
