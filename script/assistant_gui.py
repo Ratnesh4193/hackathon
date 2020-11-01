@@ -79,9 +79,9 @@ def respond(voice_data):
     #   Login Sites
     elif there_exists(["login"],voice_data):
         user=record_audio("Tell me the User name")
-        user.replace(' ','')
+        user=user.replace(' ','')
         password=record_audio("Tell me the password")
-        password.replace(' ','')
+        password=password.replace(' ','')
         print(user,password)
         if there_exists(["codechef"],voice_data):
             login_site(user,password,0)

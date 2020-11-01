@@ -61,6 +61,9 @@ This is virtual assistant project developed by the team Techtrio. This project i
  > python main.py
 - Open the link :
  > 127.0.0.1:5000/  
+ 
+ ### Instructions:
+    https://docs.google.com/document/d/1uCAoUG52-Oh0hmbOxveNmUEu8Qm6YMWVyqMXadtjr5o/edit?usp=sharing
 
 ## Contact
 - Rupal Singh - rupalsinghid@gmail.com  - https://www.linkedin.com/in/rupal-singh-40b3001a8/
