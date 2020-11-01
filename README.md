@@ -73,7 +73,7 @@ https://drive.google.com/drive/folders/12q2mrjueLZhgqb9l1EV7g4NtTVpCyeEU?usp=sha
  > 127.0.0.1:5000/  
  
  ### Instructions:
-    https://docs.google.com/document/d/1uCAoUG52-Oh0hmbOxveNmUEu8Qm6YMWVyqMXadtjr5o/edit?usp=sharing
+  ![alt text](instructions.md)
     
 ---    
 
