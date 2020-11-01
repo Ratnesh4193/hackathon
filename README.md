@@ -1,7 +1,7 @@
 # Techtrio Virtual Assistant
 ![alt text](static/techtriobg.jpeg)
 
-This is the project of the team "Techtrio".
+Project made by Team "Techtrio".
 
 ## Table of Contents
 - [Description](#description)
@@ -13,10 +13,13 @@ This is the project of the team "Techtrio".
 
 ## Description
 
-This is virtual assistant project developed by the team Techtrio. This project is useful to do various  activities  by  using  users voice and as well as we can give command by texting also. It is made to  provide ease in peoples life. You can perform below mentioned features by giving command through voice or by texting in input box. 
+This is virtual assistant project developed by the team Techtrio. This project is useful to do various  activities  by  using  users voice and as well as we can give command by texting also. It is made to  provide ease in peoples life. You can perform below mentioned features by giving command through voice or by texting in input box. <br>
+Link to our project video :
+https://drive.google.com/drive/folders/12q2mrjueLZhgqb9l1EV7g4NtTVpCyeEU?usp=sharing
 
 #### Features
 
+- Can give commands by both "Voice" & "Text"
 - Login to any website
 - Create shopping list
 - Create events in google calender
@@ -37,6 +40,8 @@ This is virtual assistant project developed by the team Techtrio. This project i
 - Html
 - CSS
 
+---
+
 ## How to use
 
 ### Prerequisite
@@ -52,8 +57,13 @@ This is virtual assistant project developed by the team Techtrio. This project i
  > .\assistant\Scripts\activate
 - Now clone the github repository by command :
  > git clone https://github.com/Ratnesh4193/virtual-assistant.git
-- Move inside project by command :cd virtual-assistant
-- Now install all required libraries by command :
+- Move inside project by command :
+ > cd virtual-assistant
+- Download PyAudio library whl according to your python version from https://pypi.org/project/PyAudio/#files and install it in the virtual by command :
+ > pip install name_of_the_file
+- Before installing the libraries mentioned in requirements.txt use this command :
+ > pip install Pillow , psycopg2
+- Now install all other required libraries by command :
  > pip install -r requirements.txt
 - If installation of any library fails then install it individually :
  > pip install <name of library>
@@ -64,11 +74,15 @@ This is virtual assistant project developed by the team Techtrio. This project i
  
  ### Instructions:
     https://docs.google.com/document/d/1uCAoUG52-Oh0hmbOxveNmUEu8Qm6YMWVyqMXadtjr5o/edit?usp=sharing
+    
+---    
 
 ## Contact
 - Rupal Singh - rupalsinghid@gmail.com  - https://www.linkedin.com/in/rupal-singh-40b3001a8/
 - Ratnesh kumar Tiwari - rktssgk@gmail.com -  https://www.linkedin.com/in/ratnesh-kumar-tiwari-867b521a6/
 - Sanskar Srivastava -  sanskar0703@gmail.com - https://www.linkedin.com/in/sanskar-srivastava-0319b3194/ 
+
+---
 
 ## Contributing
 1. Fork it
